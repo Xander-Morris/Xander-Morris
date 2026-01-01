@@ -19,5 +19,5 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add github-stats.png
-          git commit -m "Update GitHub stats image" || echo "No changes to commit"
-          git push
+          git diff-index --quiet HEAD || git commit -m "Update GitHub stats image"
+          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} HEAD:main
