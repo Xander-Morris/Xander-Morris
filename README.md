@@ -1,1 +1,1 @@
-![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=XanderYZZ)
+![GitHub Stats](github-stats.png)
