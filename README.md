@@ -1,1 +1,2 @@
-![GitHub Stats](github-stats.png)
+![GitHub Stats](https://github-readme-stats-fast.vercel.app/api?username=XanderYZZ&show_icons=true&theme=dark)
+![Top Languages](https://github-readme-stats-fast.vercel.app/api/top-langs/?username=XanderYZZ&layout=compact&theme=dark)
