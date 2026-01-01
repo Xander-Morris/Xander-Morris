@@ -1,11 +1,6 @@
 name: Generate GitHub Stats
 
 on:
-  schedule:
-    - cron: '0 0 * * *'  # runs daily at midnight UTC
-  push:
-    branches:
-      - main
   workflow_dispatch:
 
 jobs:
@@ -15,22 +10,14 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Install Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 20
-
-      - name: Install dependencies
-        run: npm install github-readme-stats
-
       - name: Generate stats image
         run: |
-          npx github-readme-stats --username XanderYZZ --output ./github-stats.png --show-icons --theme radical
+          curl -o github-stats.png "https://github-readme-stats.vercel.app/api?username=XanderYZZ&show_icons=true&theme=radical"
 
-      - name: Commit and push stats image
+      - name: Commit and push
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add github-stats.png
-          git commit -m "Update GitHub stats image"
+          git commit -m "Update GitHub stats image" || echo "No changes to commit"
           git push
